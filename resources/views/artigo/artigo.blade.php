@@ -5,7 +5,8 @@
 @endsection
 
 @section('header')
-    {{ $artigo->titulo }}
+    <h1>{{ $artigo->titulo }}</h1>
+    <h5><i><p style="text-align:right;">Por {{ $artigo->autor }}</p></i></h5>
 @endsection
 
 @include('partials.header')

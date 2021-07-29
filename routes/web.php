@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [ArtigoController::class, 'index']);
+Route::get('/', [ArtigoController::class, 'index'])->name('inicio');
 Route::get('/artigo/{id}', [ArtigoController::class, 'show'])->name('buscar_artigo');
