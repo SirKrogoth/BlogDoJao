@@ -10,7 +10,7 @@ class ArtigoController extends Controller
     //
     public function index()
     {
-        $artigos = Artigo::orderby('created_at', 'desc')->paginate(2);
+        $artigos = $this->procurarTodosArtigos();
 
         return view('news.index')->with([
             'artigos' => $artigos
@@ -24,5 +24,30 @@ class ArtigoController extends Controller
         return view('artigo.artigo',[
             'artigo' => $artigo
         ]);
+    }
+
+    public function novo()
+    {
+        return view('artigo.novo');
+    }
+
+    public function store(Request $request)
+    {
+        $artigo = $request->all();
+
+        Artigo::create($artigo);
+
+        $artigos = $this->procurarTodosArtigos();
+
+        return view('news.index')->with([
+            'artigos' => $artigos
+        ]);
+    }
+
+    public function procurarTodosArtigos()
+    {
+        $artigos = Artigo::orderby('created_at', 'desc')->paginate(2);
+
+        return $artigos;
     }
 }

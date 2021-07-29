@@ -16,3 +16,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [ArtigoController::class, 'index'])->name('inicio');
 Route::get('/artigo/{id}', [ArtigoController::class, 'show'])->name('buscar_artigo');
+Route::get('/novo', [ArtigoController::class, 'novo'])->name('novo');
+
+Route::post('/store', [ArtigoController::class, 'store'])->name('store');
