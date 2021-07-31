@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Artigo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ArtigoController extends Controller
 {
@@ -46,7 +47,9 @@ class ArtigoController extends Controller
 
     public function procurarTodosArtigos()
     {
-        $artigos = Artigo::orderby('created_at', 'desc')->paginate(2);
+        $artigos = DB::table('artigos')
+                        ->latest()
+                        ->get();
 
         return $artigos;
     }
