@@ -19,3 +19,5 @@ Route::get('/artigo/{id}', [ArtigoController::class, 'show'])->name('buscar_arti
 Route::get('/novo', [ArtigoController::class, 'novo'])->name('novo');
 
 Route::post('/store', [ArtigoController::class, 'store'])->name('store');
+Route::get('/edit/{id}', [ArtigoController::class, 'edit'])->name('editarArtigo');
+Route::put('/update/{id}', [ArtigoController::class, 'update'])->name('atualizarArtigo');

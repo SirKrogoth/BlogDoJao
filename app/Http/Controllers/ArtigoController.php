@@ -53,4 +53,32 @@ class ArtigoController extends Controller
 
         return $artigos;
     }
+
+    public function edit(int $id)
+    {
+        $artigo = Artigo::findOrFail($id);
+
+        return view('artigo.edit', [
+            'artigo' => $artigo
+        ]);
+    }
+
+    public function update(int $id, Request $request)
+    {
+        $artigo = Artigo::findOrFail($id);
+
+        $artigo->update([
+            'titulo' => $request->titulo,
+            'conteudo' => $request->conteudo,
+            'ativo' => $request->ativo,
+            'autor' => $request->autor,
+            'resumo' => $request->resumo
+        ]);
+
+        $artigos = $this->procurarTodosArtigos();
+
+        return view('news.index')->with([
+            'artigos' => $artigos
+        ]);
+    }
 }
