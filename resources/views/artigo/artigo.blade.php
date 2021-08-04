@@ -20,6 +20,19 @@
             {{ $artigo->conteudo }}
         </div>
       </div>
+
+      <br>
+
+      <div class="row">
+        <a href="{{ route('editarArtigo', $artigo->id) }}" class="btn btn-warning">Alterar Artigo</a>
+      </div>
+
+      <form action="" method="GET">
+        <div class="row">
+            <button class="btn btn-danger">Excluir Artigo</button>
+        </div>
+      </form>
+
     </div>
   </article>
 
