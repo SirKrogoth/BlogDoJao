@@ -17,7 +17,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
-            {{ $artigo->conteudo }}
+            <pre wrap="">
+                <p style="text-align: justify;">{{ $artigo->conteudo }}</p>
+            </pre>
         </div>
       </div>
 
@@ -27,9 +29,11 @@
         <a href="{{ route('editarArtigo', $artigo->id) }}" class="btn btn-warning">Alterar Artigo</a>
       </div>
 
-      <form action="" method="GET">
+      <form action="{{ route('excluirArtigo', $artigo->id) }}" method="POST">
+        @csrf
+        @method('DELETE')
         <div class="row">
-            <button class="btn btn-danger">Excluir Artigo</button>
+            <button class="btn btn-danger" type="submit" onclick="return confirm('Deseja realmente excluir este artigo?')">Excluir Artigo</button>
         </div>
       </form>
 

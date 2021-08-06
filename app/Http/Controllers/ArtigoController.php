@@ -81,4 +81,17 @@ class ArtigoController extends Controller
             'artigos' => $artigos
         ]);
     }
+
+    public function destroy(int $id)
+    {
+        $artigo = Artigo::findOrFail($id);
+
+        $artigo->delete();
+
+        $artigos = $this->procurarTodosArtigos();
+
+        return view('news.index')->with([
+            'artigos' => $artigos
+        ]);
+    }
 }
