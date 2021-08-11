@@ -28,7 +28,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="resumo" class="form-label">Resumo do artigo</label>
-                    <textarea class="form-control" name="resumo" placeholder="Informe aqui um breve resumo do seu artigo. Este conteúdo será utilizado para chamar a atenção na time-line." id="resumo" rows="3"></textarea>
+                    <textarea data-ls-module="charCounter" maxlength="300" class="form-control" name="resumo" onkeyup="contadorDeResumoFunction()" placeholder="Informe aqui um breve resumo do seu artigo. Este conteúdo será utilizado para chamar a atenção na time-line." id="resumo" rows="3"></textarea>
+                    <span class="ls-label-text" style="font-size: 12px;">(<span class="ls-label-text" style="font-size: 12px;" id="contadorDeResumo" name="contadorDeResumo">0</span>/300)</span>
                 </div>
                 <div class="mb-3">
                     <label for="conteudo" class="form-label">Artigo</label>

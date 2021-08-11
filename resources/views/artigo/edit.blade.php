@@ -29,7 +29,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="resumo" class="form-label">Resumo do artigo</label>
-                    <textarea class="form-control" name="resumo" id="resumo" rows="3">{{ $artigo->resumo }}</textarea>
+                    <textarea data-ls-module="charCounter" maxlength="300" class="form-control" name="resumo" onkeyup="contadorDeResumoFunction()" id="resumo" rows="3">{{ $artigo->resumo }}</textarea>
+                    <span class="ls-label-text" style="font-size: 12px;">(<span class="ls-label-text" style="font-size: 12px;" id="contadorDeResumo" name="contadorDeResumo">0</span>/300)</span>
                 </div>
                 <div class="mb-3">
                     <label for="conteudo" class="form-label">Artigo</label>
