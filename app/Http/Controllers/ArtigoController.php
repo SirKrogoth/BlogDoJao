@@ -41,7 +41,8 @@ class ArtigoController extends Controller
         $artigos = $this->procurarTodosArtigos();
 
         return view('news.index')->with([
-            'artigos' => $artigos
+            'artigos' => $artigos,
+            'sucesso' => 'Artigo ' . $request->titulo . ' criado com sucesso.'
         ]);
     }
 
